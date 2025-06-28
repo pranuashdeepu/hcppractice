@@ -1,12 +1,13 @@
 provider "aws" {
 region = "ap-south-1"
+}
 
-}
 resource "aws_instance" "one" {
-count = 3
-ami = "ami-0d03cb826412c6b0f"
-instance_type = "t2.micro"
+count = var.instance_count
+ami = "ami-018046b953a698135"
+instance_type = var.instance_type
 tags = {
-Name = "dev-server"
+Name = var.instance_name
 }
 }
+
